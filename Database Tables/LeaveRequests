@@ -1,0 +1,16 @@
+@EndUserText.label : 'Leave Requests'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table ztable_new {
+
+  key client : abap.clnt not null;
+  key id     : abap.int4 not null;
+  employee   : abap.char(40);
+  leave_type : abap.char(20);
+  start_date : abap.dats;
+  end_date   : abap.dats;
+  status     : abap.char(20);
+
+}
