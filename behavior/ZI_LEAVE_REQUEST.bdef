@@ -1,0 +1,13 @@
+managed implementation in class ZBP_LEAVE unique;   
+
+define behavior for ZI_LEAVE_REQUEST alias Leave    // Behavior definition for CDS entity ZI_LEAVE_REQUEST
+persistent table ztable_new                        
+lock master                                         // Master lock handling for consistency
+authorization master ( instance )                   // Instance-level authorization handling
+{
+  field ( mandatory ) employee, leave_type, start_date, end_date;  
+  field ( readonly ) status;                                      // Status is system-controlled, not editable
+
+  action approve result [1] $self;   
+  action reject  result [1] $self;  
+}
